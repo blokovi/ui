@@ -1,100 +1,100 @@
 {
   "/things/version": {
-    "target": "http://localhost:8182",
+    "target": "http://84.201.180.9:8182",
     "secure": false,
     "pathRewrite": {
       "^/things": ""
     }
   },
   "/users/version": {
-    "target": "http://localhost:8180",
+    "target": "http://84.201.180.9:8180",
     "secure": false,
     "pathRewrite": {
       "^/users": ""
     }
   },
   "/normalizer/version": {
-    "target": "http://localhost:8184",
+    "target": "http://84.201.180.9:8184",
     "secure": false,
     "pathRewrite": {
       "^/normalizer": ""
     }
   },
   "/http/version": {
-    "target": "http://localhost:8185",
+    "target": "http://84.201.180.9:8185",
     "secure": false,
     "pathRewrite": {
       "^/http": ""
     }
   },
   "/ws/version": {
-    "target": "http://localhost:8186",
+    "target": "http://84.201.180.9:8186",
     "secure": false,
     "pathRewrite": {
       "^/ws": ""
     }
   },
   "/writer/channels/*": {
-    "target": "http://localhost:8185",
+    "target": "http://84.201.180.9:8185",
     "secure": false,
     "pathRewrite": {
       "^/writer": ""
     }
   },
   "/reader/version": {
-    "target": "http://localhost:8905",
+    "target": "http://84.201.180.9:8905",
     "secure": false,
     "pathRewrite": {
       "^/reader": ""
     }
   },
   "/reader/channels/*": {
-    "target": "http://localhost:8905",
+    "target": "http://84.201.180.9:8905",
     "secure": false,
     "pathRewrite": {
       "^/reader": ""
     }
   },
   "/password/*": {
-    "target": "http://localhost:8180",
+    "target": "http://84.201.180.9:8180",
     "secure": false
   },
   "/users": {
-    "target": "http://localhost:8180",
+    "target": "http://84.201.180.9:8180",
     "secure": false
   },
   "/tokens": {
-    "target": "http://localhost:8180",
+    "target": "http://84.201.180.9:8180",
     "secure": false
   },
   "/things/*": {
-    "target": "http://localhost:8182",
+    "target": "http://84.201.180.9:8182",
     "secure": false
   },
   "/connect": {
-    "target": "http://localhost:8182",
+    "target": "http://84.201.180.9:8182",
     "secure": false
   },
   "/channels/*": {
-    "target": "http://localhost:8182",
+    "target": "http://84.201.180.9:8182",
     "secure": false
   },
   "/bootstrap/*": {
-    "target": "http://localhost:8202",
+    "target": "http://84.201.180.9:8202",
     "secure": false,
     "pathRewrite": {
       "^/bootstrap": "/things/bootstrap"
     }
   },
   "/grafana/*": {
-    "target": "http://localhost:3001",
+    "target": "http://84.201.180.9:3001",
     "secure": false
   },
   "/config/*": {
-    "target": "http://localhost:8202",
+    "target": "http://84.201.180.9:8202",
     "secure": false,
     "pathRewrite": {
-      "^/config": "/things/configs"
+      "^/config": "/bs/things/configs"
     }
   }
 }

@@ -13,7 +13,7 @@ export const environment = {
   thingsUrl: '/things',
   channelsUrl: '/channels',
   configUrl: '/config',
-  bootstrapUrl: '/bootstrap',
+  bootstrapUrl: '/bs',
   connectUrl: '/connect',
 
   usersVersionUrl: '/users/version',
@@ -26,8 +26,8 @@ export const environment = {
   readerVersionUrl: '/reader/version',
   readerChannelsUrl: '/reader/channels',
 
-  grafanaHome: 'http://localhost:3001/?orgId=1&kiosk',
-  jaegerHome: 'http://localhost:16686/search',
+  grafanaHome: 'http://clover.mainflux.io/grafana',
+  jaegerHome: 'http://84.201.180.9',
   loraServer: 'http://lora.mainflux.io/#/',
   nodeRedHome: 'http://localhost:1880',
 };
