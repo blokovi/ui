@@ -20,6 +20,7 @@ export const environment = {
   configUrl: '/config',
   bootstrapUrl: '/bootstrap',
   connectUrl: '/connect',
+  mqttHostname: '84.201.171.65',
 
   usersVersionUrl: '/users/version',
   thingsVersionUrl: '/things/version',
