@@ -21,6 +21,7 @@ export const environment = {
   bootstrapUrl: '/bootstrap',
   connectUrl: '/connect',
   mqttHostname: '84.201.171.65',
+  mqttWsHostname: 'clover.mainflux.io',
 
   usersVersionUrl: '/users/version',
   thingsVersionUrl: '/things/version',
