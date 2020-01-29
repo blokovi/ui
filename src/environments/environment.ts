@@ -26,7 +26,10 @@ export const environment = {
   writerChannelsUrl: '/writer/channels',
   readerChannelsUrl: '/reader/channels',
 
-  grafanaHome: 'http://localhost:3001/?orgId=1&kiosk',
+  // grafanaHome: 'http://localhost:3001/?orgId=1&kiosk',
+  grafanaHome: 'http://clover.mainflux.io/grafana/?orgId=1&kiosk',
+  grafanaGateway: 'http://clover.mainflux.io/grafana/d/000000127/telegraf-system-dashboard',
+  grafanaAPIKey: 'eyJrIjoiWE05SnhnS0luNTJuNTZ2R1BKZXlhc3lxRTE4N2FhSEUiLCJuIjoidWlndyIsImlkIjoxfQ==',
   jaegerHome: 'http://localhost:16686/search',
   loraServer: 'http://lora.mainflux.io/#/',
   nodeRedHome: 'http://localhost:1880',

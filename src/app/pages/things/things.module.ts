@@ -27,6 +27,7 @@ import { GatewaysDetailsComponent } from 'app/pages/things/gateways/details/gate
 import { GatewaysInfoComponent } from 'app/pages/things/gateways/details/info/gateways.info.component';
 import { GatewaysConfigComponent } from 'app/pages/things/gateways/details/config/gateways.config.component';
 import { GatewaysXtermComponent } from 'app/pages/things/gateways/details/xterm/gateways.xterm.component';
+import { GrafanaDetailsComponent } from 'app/pages/things/gateways/details/grafana/grafana.details.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { GatewaysXtermComponent } from 'app/pages/things/gateways/details/xterm/
     GatewaysInfoComponent,
     GatewaysConfigComponent,
     GatewaysXtermComponent,
+    GrafanaDetailsComponent,
   ],
   entryComponents: [
     ConfirmationComponent,

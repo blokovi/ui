@@ -6,6 +6,7 @@ import {
  } from '@nebular/theme';
 
 import { DetailsComponent } from 'app/shared/details/details.component';
+// import { GrafanaComponent } from 'app/pages/admin/grafana/grafana.component';
 
 @NgModule({
   imports: [
@@ -15,9 +16,11 @@ import { DetailsComponent } from 'app/shared/details/details.component';
   ],
   declarations: [
     DetailsComponent,
+    // GrafanaComponent,
   ],
   entryComponents: [
     DetailsComponent,
+    // GrafanaComponent,
   ],
 })
 

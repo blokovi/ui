@@ -11,6 +11,7 @@ import { OpcuaComponent } from 'app/pages/things/opcua/opcua.component';
 import { OpcuaDetailsComponent } from 'app/pages/things/opcua/details/opcua.details.component';
 import { GatewaysComponent } from 'app/pages/things/gateways/gateways.component';
 import { GatewaysDetailsComponent } from 'app/pages/things/gateways/details/gateways.details.component';
+import { GrafanaDetailsComponent } from 'app/pages/things/gateways/details/grafana/grafana.details.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path: 'gateways/details/:id',
     component: GatewaysDetailsComponent,
+  },
+  {
+    path: 'gateways/grafana/:id',
+    component: GrafanaDetailsComponent,
   },
 ];
 

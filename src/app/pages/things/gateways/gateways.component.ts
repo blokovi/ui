@@ -10,6 +10,7 @@ import { MessagesService } from 'app/common/services/messages/messages.service';
 
 import { DetailsComponent } from 'app/shared/details/details.component';
 import { ConfirmationComponent } from 'app/shared/confirmation/confirmation.component';
+import { GrafanaComponent } from 'app/pages/admin/grafana/grafana.component';
 
 @Component({
   selector: 'ngx-gateways-component',
@@ -87,6 +88,7 @@ export class GatewaysComponent implements OnInit {
         },
       },
       details: {
+        width: '10%',
         title: 'Details',
         type: 'custom',
         renderComponent: DetailsComponent,
@@ -98,6 +100,25 @@ export class GatewaysComponent implements OnInit {
         addable: false,
         filter: false,
       },
+      // id: {
+      //   title: 'Grafana',
+      //   type: 'html',
+      //   editable: 'false',
+      //   addable: false,
+      //   filter: false,
+      // },
+      // grafana: {
+      //   title: 'Grafana',
+      //   type: 'custom',
+      //   renderComponent: GrafanaComponent,
+      //   valuePrepareFunction: (cell, row) => {
+      //     row.type = 'gateways';
+      //     return row;
+      //   },
+      //   editable: 'false',
+      //   addable: false,
+      //   filter: false,
+      // },
     },
     pager: {
       display: true,
@@ -162,6 +183,7 @@ export class GatewaysComponent implements OnInit {
             },
           );
         });
+        console.log('resp is', resp)
       },
     );
   }

@@ -18,4 +18,7 @@ export class DetailsComponent {
   onOpenDetailsPage() {
     this.router.navigate([`/pages/things/${this.value.type}/details/${this.value.id}`]);
   }
+  onOpenGrafanaPage() {
+    this.router.navigate([`/pages/things/${this.value.type}/grafana/${this.value.id}`]);
+  }
 }
