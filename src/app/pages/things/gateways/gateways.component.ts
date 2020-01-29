@@ -10,7 +10,6 @@ import { MessagesService } from 'app/common/services/messages/messages.service';
 
 import { DetailsComponent } from 'app/shared/details/details.component';
 import { ConfirmationComponent } from 'app/shared/confirmation/confirmation.component';
-import { GrafanaComponent } from 'app/pages/admin/grafana/grafana.component';
 
 @Component({
   selector: 'ngx-gateways-component',
@@ -183,7 +182,7 @@ export class GatewaysComponent implements OnInit {
             },
           );
         });
-        console.log('resp is', resp)
+        console.log('resp is', resp);
       },
     );
   }
