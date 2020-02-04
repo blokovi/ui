@@ -7,6 +7,7 @@ import { Message } from 'app/common/interfaces/mainflux.interface';
 import { Gateway } from 'app/common/interfaces/gateway.interface';
 import { interval } from 'rxjs';
 import { LocalDataSource } from 'ng2-smart-table';
+import { debug } from 'util';
 @Component({
   selector: 'ngx-services-info',
   templateUrl: './services.component.html',
@@ -63,27 +64,18 @@ export class ServicesComponent  {
         placeholder: 'Search name',
         editable: false,
         filter: false,
-      },
-      // Command:{
-      //     title: 'Command',
-      //     type: 'text',
-      //     editable: false,
-      //     filter: false,
-      //     placeholder: 'Search name',
-      //     valuePrepareFunction: (cell, row) => {
-      //       if (row.Name != 'adc' ) {
-      //         return "Run";
-      //       }
-      //       return 'None';
-      //     },
-      // },
-     
+      }, 
     },
     pager: {
       display: true,
       perPage: 6,
     },
   };
+  onCustom(event) {
+    console.log('event is', event);
+    // alert(`Custom event '${event.action}' fired on row N: ${event.data.id}`)
+    this.mqttManagerService.publish(this.gateway.metadata.ctrlChannelID, '1', 'connect', '127.0.0.1:8081');
+  }
 
   constructor(
     private gatewaysService: GatewaysService,
