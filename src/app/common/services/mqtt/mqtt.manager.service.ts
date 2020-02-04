@@ -78,7 +78,7 @@ export class MqttManagerService {
     this.mqttService.publish(topic, payload).subscribe();
   }
 
-  publishToService(channel: string, svc:string, bn: string, n: string, vs: string) {
+  publishToService(channel: string, svc: string, bn: string, n: string, vs: string) {
     const topic = this.createTopic(channel) + `services/${svc}`;
     const payload = this.createPayload(bn, n, vs);
     this.mqttService.publish(topic, payload).subscribe();

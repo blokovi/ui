@@ -2,12 +2,11 @@ import { Component, Input } from '@angular/core';
 import { GatewaysService } from 'app/common/services/gateways/gateways.service';
 import { NotificationsService } from 'app/common/services/notifications/notifications.service';
 import { MqttManagerService } from 'app/common/services/mqtt/mqtt.manager.service';
-import { Service } from 'app/pages/clover/gateways/details/services/services.interface'
+import { Service } from 'app/pages/clover/gateways/details/services/services.interface';
 import { Message } from 'app/common/interfaces/mainflux.interface';
 import { Gateway } from 'app/common/interfaces/gateway.interface';
 import { interval } from 'rxjs';
 import { LocalDataSource } from 'ng2-smart-table';
-import { debug } from 'util';
 @Component({
   selector: 'ngx-services-info',
   templateUrl: './services.component.html',
@@ -24,25 +23,25 @@ export class ServicesComponent  {
   source: LocalDataSource = new LocalDataSource();
 
   settings = {
-    
+
     actions: {
         custom: [
           {
             name: 'run',
-            title: '<i class="ion-android-arrow-dropright-circle" title="Run"></i>'
+            title: '<i class="ion-android-arrow-dropright-circle" title="Run"></i>',
           },
           {
             name: 'connect',
-            title: '<i class="ion-flash" title="Connect"></i>'
+            title: '<i class="ion-flash" title="Connect"></i>',
           },
         ],
         add: false,
         edit: false,
         delete: false,
-        position:  "right",
-        class: "action-column",
+        position:  'right',
+        class: 'action-column',
       },
-  
+
     columns: {
       Name: {
         title: 'Name',
@@ -64,7 +63,7 @@ export class ServicesComponent  {
         placeholder: 'Search name',
         editable: false,
         filter: false,
-      }, 
+      },
     },
     pager: {
       display: true,
@@ -73,7 +72,6 @@ export class ServicesComponent  {
   };
   onCustom(event) {
     console.log('event is', event);
-    // alert(`Custom event '${event.action}' fired on row N: ${event.data.id}`)
     this.mqttManagerService.publishToService(this.gateway.metadata.ctrlChannelID, 'adc', '1', event.action, event.data.Name.replace('_', '.'));
   }
 
@@ -81,7 +79,7 @@ export class ServicesComponent  {
     private gatewaysService: GatewaysService,
     private notificationsService: NotificationsService,
     private mqttManagerService: MqttManagerService,
-  ) { 
+  ) {
 
     const poller = interval(10000);
     // Subscribe to begin publishing values
