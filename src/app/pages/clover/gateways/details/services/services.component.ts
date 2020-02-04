@@ -28,11 +28,11 @@ export class ServicesComponent  {
         custom: [
           {
             name: 'runAction',
-            title: '<i class="ion-document" title="Run"></i>'
+            title: '<i class="ion-android-arrow-dropright-circle" title="Run"></i>'
           },
           {
             name: 'connectAction',
-            title: '<i class="ion-edit" title="Connect"></i>'
+            title: '<i class="ion-flash" title="Connect"></i>'
           },
         ],
         add: false,
@@ -64,19 +64,19 @@ export class ServicesComponent  {
         editable: false,
         filter: false,
       },
-      Command:{
-          title: 'Command',
-          type: 'text',
-          editable: false,
-          filter: false,
-          placeholder: 'Search name',
-          valuePrepareFunction: (cell, row) => {
-            if (row.Name != 'adc' ) {
-              return "Run";
-            }
-            return 'None';
-          },
-      },
+      // Command:{
+      //     title: 'Command',
+      //     type: 'text',
+      //     editable: false,
+      //     filter: false,
+      //     placeholder: 'Search name',
+      //     valuePrepareFunction: (cell, row) => {
+      //       if (row.Name != 'adc' ) {
+      //         return "Run";
+      //       }
+      //       return 'None';
+      //     },
+      // },
      
     },
     pager: {
