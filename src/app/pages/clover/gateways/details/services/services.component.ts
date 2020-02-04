@@ -28,11 +28,11 @@ export class ServicesComponent  {
     actions: {
         custom: [
           {
-            name: 'runAction',
+            name: 'run',
             title: '<i class="ion-android-arrow-dropright-circle" title="Run"></i>'
           },
           {
-            name: 'connectAction',
+            name: 'connect',
             title: '<i class="ion-flash" title="Connect"></i>'
           },
         ],
@@ -74,7 +74,7 @@ export class ServicesComponent  {
   onCustom(event) {
     console.log('event is', event);
     // alert(`Custom event '${event.action}' fired on row N: ${event.data.id}`)
-    this.mqttManagerService.publish(this.gateway.metadata.ctrlChannelID, '1', 'connect', '127.0.0.1:8081');
+    this.mqttManagerService.publishToService(this.gateway.metadata.ctrlChannelID, 'adc', '1', event.action, event.data.Name.replace('_', '.'));
   }
 
   constructor(
