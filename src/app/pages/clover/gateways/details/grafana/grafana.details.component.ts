@@ -12,12 +12,12 @@ export class GrafanaDetailsComponent implements OnInit {
   iframeGrafana: any;
 
   constructor(
-    // private route: ActivatedRoute,
+    private route: ActivatedRoute,
     private domSanitizer: DomSanitizer,
   ) { }
 
   ngOnInit() {
-    // const id = this.route.snapshot.paramMap.get('id');
-    this.iframeGrafana = this.domSanitizer.bypassSecurityTrustResourceUrl(environment.grafanaHome);
+    const id = this.route.snapshot.paramMap.get('id');
+    this.iframeGrafana = this.domSanitizer.bypassSecurityTrustResourceUrl(environment.grafanaHome+environment.grafanaGateway+id);
   }
 }

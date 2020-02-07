@@ -23,8 +23,8 @@ export const environment = {
   writerChannelsUrl: '/writer/channels',
   readerChannelsUrl: '/reader/channels',
 
-  grafanaHome: 'http://localhost:3001/?orgId=1&kiosk',
-  grafanaGateway: 'http://clover.mainflux.io/grafana/d/000000127/telegraf-system-dashboard',
+  grafanaHome: 'http://clover.mainflux.io/?orgId=1&kiosk',
+  grafanaGateway: '&refresh=1m&var-datasource=InfluxDB-MAINFUX&var-inter=10s&var-mountpoint=All&var-cpu=All&var-disk=All&var-netif=All&var-server="',
   jaegerHome: 'http://localhost:16686/search',
   loraServer: 'http://lora.mainflux.io/#/',
 };
