@@ -102,6 +102,7 @@ export class DevicesDetailsComponent implements OnInit {
               } else {
                 this.messagesService.getMessages(chan.id, this.thing.key, this.thing.id).subscribe(
                   (respMsg: any) => {
+                    console.log("iz device details:", respMsg);
                     if (respMsg.messages) {
                       this.messages = respMsg.messages;
                     }

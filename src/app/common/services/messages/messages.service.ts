@@ -41,6 +41,7 @@ export class MessagesService {
       )
       .catch(
         err => {
+          console.log('error', err)
           this.notificationsService.error('Failed to read Messages',
             `Error: ${err.status} - ${err.statusText}`);
           return Observable.throw(err);

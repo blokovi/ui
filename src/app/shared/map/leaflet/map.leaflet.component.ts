@@ -84,10 +84,11 @@ export class MapComponent implements OnChanges {
     if (this.gateways) {
       this.gateways.forEach((gw) => {
         const channelID: string = gw.metadata ? gw.metadata.dataChannelID : '';
-
+        console.log("iz Mape gw: ", gw)
         if (gw.key !== '' && channelID !== '') {
           this.msgService.getMessages(channelID, gw.key, gw.id).subscribe(
             (resp: any) => {
+              console.log("iz Mape resp: ", resp)
               let lon: Number;
               let lat: Number;
               if (resp.messages) {

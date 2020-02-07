@@ -29,6 +29,7 @@ export const environment = {
   readerChannelsUrl: '/reader/channels',
 
   grafanaHome: 'http://localhost:3001/?orgId=1&kiosk',
+  grafanaGateway: 'http://blokovi.com',
   jaegerHome: 'http://localhost:16686/search',
   loraServer: 'http://lora.mainflux.io/#/',
 };

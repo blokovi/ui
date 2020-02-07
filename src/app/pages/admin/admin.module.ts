@@ -25,6 +25,7 @@ import { LoraServerComponent } from './loraserver/loraserver.component';
 
 import { PagesModule } from 'app/pages/pages.module';
 import { ConfirmationComponent } from 'app/shared/confirmation/confirmation.component';
+import { CloverDetailsComponent } from '../clover/details/clover.details.component';
 
 @NgModule({
   imports: [

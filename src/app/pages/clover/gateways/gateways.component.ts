@@ -8,7 +8,7 @@ import { GatewaysService } from 'app/common/services/gateways/gateways.service';
 import { NotificationsService } from 'app/common/services/notifications/notifications.service';
 import { MessagesService } from 'app/common/services/messages/messages.service';
 
-import { DetailsComponent } from 'app/shared/details/details.component';
+import { CloverDetailsComponent } from 'app/pages/clover/details/clover.details.component';
 import { ConfirmationComponent } from 'app/shared/confirmation/confirmation.component';
 
 @Component({
@@ -95,7 +95,7 @@ export class GatewaysComponent implements OnInit {
       details: {
         title: 'Details',
         type: 'custom',
-        renderComponent: DetailsComponent,
+        renderComponent: CloverDetailsComponent,
         valuePrepareFunction: (cell, row) => {
           row.type = 'gateways';
           return row;
@@ -145,16 +145,19 @@ export class GatewaysComponent implements OnInit {
   }
 
   getGateways(): void {
+    console.log ('usao u getGatew..');
     this.gateways = [];
 
     this.gatewaysService.getGateways(this.offset, this.limit).subscribe(
       (resp: any) => {
+        console.log ('resp:', resp);
         this.total = resp.total;
 
         resp.things.forEach(gw => {
           gw.mac = gw.metadata.mac;
 
           const dataChannelID: string = gw.metadata ? gw.metadata.dataChannelID : '';
+          console.log ('gw:', gw);
           this.messagesService.getMessages(dataChannelID, gw.key, gw.id).subscribe(
             (msgResp: any) => {
               if (msgResp.messages) {
