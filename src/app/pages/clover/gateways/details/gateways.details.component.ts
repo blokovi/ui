@@ -3,7 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 
 import { GatewaysService } from 'app/common/services/gateways/gateways.service';
 import { NotificationsService } from 'app/common/services/notifications/notifications.service';
+import { Service } from 'app/pages/clover/gateways/details/services/services.interface'
 import { Gateway } from 'app/common/interfaces/gateway.interface';
+import { Message } from 'app/common/interfaces/mainflux.interface';
+
 
 import { MqttManagerService } from 'app/common/services/mqtt/mqtt.manager.service';
 
@@ -18,6 +21,7 @@ export class GatewaysDetailsComponent implements OnInit, OnDestroy {
     metadata: {},
   };
 
+  services: Service[]
   mfxAgent = true;
 
   constructor(
@@ -28,6 +32,14 @@ export class GatewaysDetailsComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+
+    const mcSub = this.mqttManagerService.messageChange.subscribe(
+      (message: Message) => {
+        this.services = <Service[]>JSON.parse(message.vs.toString())
+        console.log(message.vs)
+      },
+    );
+
     const id = this.route.snapshot.paramMap.get('id');
     this.gatewaysService.getGateway(id).subscribe(
       gw => {
