@@ -18,6 +18,6 @@ export class GrafanaDetailsComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.iframeGrafana = this.domSanitizer.bypassSecurityTrustResourceUrl(environment.grafanaHome + environment.grafanaGateway + id);
+    this.iframeGrafana = this.domSanitizer.bypassSecurityTrustResourceUrl(`${environment.grafanaGateway}${id}`);
   }
 }
