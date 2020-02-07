@@ -33,7 +33,7 @@ export const environment = {
   readerVersionUrl: '/reader/version',
   readerChannelsUrl: '/reader/channels',
 
-  grafanaHome: 'http://clover.mainflux.io/grafana',
+  grafanaHome: 'http://clover.mainflux.io/grafana/?orgId=1&kiosk',
   grafanaGateway: '&refresh=1m&var-datasource=InfluxDB-MAINFUX&var-inter=10s&var-mountpoint=All&var-cpu=All&var-disk=All&var-netif=All&var-server="',
   jaegerHome: 'http://84.201.180.9',
   loraServer: 'http://lora.mainflux.io/#/',
