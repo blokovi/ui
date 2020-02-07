@@ -21,6 +21,6 @@ export class CloverDetailsComponent {
     this.router.navigate([`${this.router.routerState.snapshot.url}/details/grafana/${this.value.id}`]);
   }
   onOpenDockerLogsPage() {
-    this.router.navigate([`${this.router.routerState.snapshot.url}/details/dockerlogs/${this.value.id}`])
+    this.router.navigate([`${this.router.routerState.snapshot.url}/details/dockerlogs/${this.value.id}`]);
   }
 }

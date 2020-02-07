@@ -10,7 +10,7 @@ import {
   NbCheckboxModule,
 } from '@nebular/theme';
 
-import { CloverRoutingModule } from "./clover.routing.module";
+import { CloverRoutingModule } from './clover.routing.module';
 import { PagesModule } from 'app/pages/pages.module';
 import { ConfirmationComponent } from 'app/shared/confirmation/confirmation.component';
 
@@ -49,6 +49,6 @@ import { CloverDetailsModule } from 'app/pages/clover/details/clover.details.mod
   ],
   exports: [
     CloverDetailsModule,
-  ]
+  ],
 })
 export class CloverModule { }
