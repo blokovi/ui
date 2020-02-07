@@ -18,7 +18,7 @@ export class GatewaysDetailsComponent implements OnInit, OnDestroy {
     metadata: {},
   };
 
-  mfxAgent = true;
+  mfxAgent = false;
 
   constructor(
     private route: ActivatedRoute,
