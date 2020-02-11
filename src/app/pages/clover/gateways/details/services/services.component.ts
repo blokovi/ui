@@ -72,7 +72,8 @@ export class ServicesComponent  {
   };
   onCustom(event) {
     console.log('event is', event);
-    this.mqttManagerService.publishToService(this.gateway.metadata.ctrlChannelID, 'adc', '1', event.action, event.data.Name.replace('_', '.'));
+    var ip =<String>event.data.Name
+    this.mqttManagerService.publishToService(this.gateway.metadata.ctrlChannelID, 'adc', '1', event.action, ip.replace(/_/g, "."));
   }
 
   constructor(
