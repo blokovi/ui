@@ -36,7 +36,6 @@ export class GatewaysDetailsComponent implements OnInit, OnDestroy {
     const mcSub = this.mqttManagerService.messageChange.subscribe(
       (message: Message) => {
         this.services = <Service[]>JSON.parse(message.vs.toString())
-        console.log(message.vs)
       },
     );
 

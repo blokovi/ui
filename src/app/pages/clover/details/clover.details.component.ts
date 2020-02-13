@@ -23,4 +23,7 @@ export class CloverDetailsComponent {
   onOpenDockerLogsPage() {
     this.router.navigate([`${this.router.routerState.snapshot.url}/details/dockerlogs/${this.value.id}`]);
   }
+  onOpenStatsPage() {
+    this.router.navigate([`${this.router.routerState.snapshot.url}/details/stats/${this.value.id}`]);
+  }
 }

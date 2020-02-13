@@ -145,19 +145,18 @@ export class GatewaysComponent implements OnInit {
   }
 
   getGateways(): void {
-    console.log ('usao u getGatew..');
     this.gateways = [];
 
     this.gatewaysService.getGateways(this.offset, this.limit).subscribe(
       (resp: any) => {
-        console.log ('resp:', resp);
+        // console.log ('resp:', resp);
         this.total = resp.total;
 
         resp.things.forEach(gw => {
           gw.mac = gw.metadata.mac;
 
           const dataChannelID: string = gw.metadata ? gw.metadata.dataChannelID : '';
-          console.log ('gw:', gw);
+          // console.log ('gw:', gw);
           this.messagesService.getMessages(dataChannelID, gw.key, gw.id).subscribe(
             (msgResp: any) => {
               if (msgResp.messages) {
