@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { LocalDataSource } from 'ng2-smart-table';
 
@@ -8,6 +9,7 @@ import { GatewaysService } from 'app/common/services/gateways/gateways.service';
 import { NotificationsService } from 'app/common/services/notifications/notifications.service';
 import { MessagesService } from 'app/common/services/messages/messages.service';
 
+import { environment } from 'environments/environment';
 import { CloverDetailsComponent } from 'app/pages/clover/details/clover.details.component';
 import { ConfirmationComponent } from 'app/shared/confirmation/confirmation.component';
 
@@ -123,11 +125,40 @@ export class GatewaysComponent implements OnInit {
     private messagesService: MessagesService,
     private notificationsService: NotificationsService,
     private dialogService: NbDialogService,
+    private http: HttpClient,
   ) { }
 
   ngOnInit() {
     this.getGateways();
     this.getGatewaysChannels();
+    this.loginGrafana().subscribe(
+      (resp:any) =>{
+        console.log(resp)
+      }
+    );
+  }
+
+  loginGrafana(){
+    const headers = new HttpHeaders({
+      'Content-type': 'application/json; charset=UTF-8',
+    });
+    const creds = {
+      user: environment.grafanaUsername,
+      password: environment.grafanaPassword,
+      email: "",
+    };
+    return this.http.post(environment.grafanaLoginURL , creds, { observe: 'response', headers: headers })
+    .map(
+      resp => {
+        console.log(resp)
+        return resp
+      },
+      err => {
+        this.notificationsService.error(
+          'Failed to login to grafana',
+          `Error: ${err.status} - ${err.statusText}`);
+      },
+    );
   }
 
   getGatewaysChannels() {
