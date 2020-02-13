@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
-import { DomSanitizer } from '@angular/platform-browser';
-import { environment } from 'environments/environment';
 import { ActivatedRoute } from '@angular/router';
 import { GatewaysService } from 'app/common/services/gateways/gateways.service';
 import { NotificationsService } from 'app/common/services/notifications/notifications.service';
@@ -33,17 +31,17 @@ export class StatsDetailsComponent implements OnInit {
     },
     columns: {
       subtopic: {
-        title: 'Subtopic'
-      },  
+        title: 'Subtopic',
+      },
       name: {
-        title: 'Name'
+        title: 'Name',
       },
       time: {
-        title: 'Time'
+        title: 'Time',
       },
       value: {
-        title: 'Value'
-      },      
+        title: 'Value',
+      },
     },
   };
 
@@ -59,16 +57,16 @@ export class StatsDetailsComponent implements OnInit {
     this.gatewaysService.getGateway(id).subscribe(
       gw => {
         this.gateway = <Gateway>gw;
-        
+
         const exportChannelID: string = this.gateway.metadata ? this.gateway.metadata.exportChannelID : '';
-    
-        this.messagesService.getMessages(exportChannelID, this.gateway.key, this.gateway.id, ).subscribe(
+
+        this.messagesService.getMessages(exportChannelID, this.gateway.key, this.gateway.id).subscribe(
           (respMsg: any) => {
             // this.messages = respMsg.messages || this.messages;
             this.source.load(respMsg.messages);
             this.source.refresh();
-          }
-        )
+          },
+        );
       },
       err => {
         this.notificationsService.error('Failed to fetch gateway',
