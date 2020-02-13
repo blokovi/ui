@@ -34,6 +34,9 @@ export const environment = {
   readerChannelsUrl: '/reader/channels',
 
   grafanaHome: 'http://clover.mainflux.io/grafana/?orgId=1&kiosk',
+  grafanaLoginURL: 'http://clover.mainflux.io/grafana/login',
+  grafanaUsername: 'admin',
+  grafanaPassword: 'pU9kNSwu6kKGZzwr',
   grafanaGateway: 'http://clover.mainflux.io/grafana/d/000000127/telegraf-system-dashboard?orgId=1&kiosk&refresh=1m&var-datasource=InfluxDB-MAINFUX&var-inter=10s&var-mountpoint=All&var-cpu=All&var-disk=All&var-netif=All&var-server=',
   jaegerHome: 'http://84.201.180.9',
   loraServer: 'http://lora.mainflux.io/#/',
