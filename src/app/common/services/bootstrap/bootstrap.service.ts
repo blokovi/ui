@@ -41,7 +41,7 @@ export class BootstrapService {
       'routes': [
         {
           'mqtt_topic': '',
-          'nats_topic': 'adc.samples',
+          'nats_topic': 'adc.>',
           'subtopic': '',
           'type': 'plain',
         },

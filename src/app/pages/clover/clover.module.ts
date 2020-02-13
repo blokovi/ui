@@ -18,6 +18,7 @@ import { GatewaysComponent } from 'app/pages/clover/gateways/gateways.component'
 import { GatewaysDetailsComponent } from 'app/pages/clover/gateways/details/gateways.details.component';
 import { GrafanaDetailsComponent } from 'app/pages/clover/gateways/details/grafana/grafana.details.component';
 import { DockerLogsDetailsComponent } from 'app/pages/clover/gateways/details/dockerlogs/dockerlogs.details.component';
+import { StatsDetailsComponent } from 'app/pages/clover/gateways/details/stats/stats.details.component';
 import { ServicesComponent } from './gateways/details/services/services.component';
 import { CloverDetailsComponent } from 'app/pages/clover/details/clover.details.component';
 import { CloverDetailsModule } from 'app/pages/clover/details/clover.details.module';
@@ -42,6 +43,7 @@ import { CloverDetailsModule } from 'app/pages/clover/details/clover.details.mod
     ServicesComponent,
     GrafanaDetailsComponent,
     DockerLogsDetailsComponent,
+    StatsDetailsComponent,
   ],
   entryComponents: [
     ConfirmationComponent,
