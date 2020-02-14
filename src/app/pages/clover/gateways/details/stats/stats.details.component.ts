@@ -38,9 +38,18 @@ export class StatsDetailsComponent implements OnInit {
       },
       time: {
         title: 'Time',
+        valuePrepareFunction: (cell, row) => {
+          if (cell > 9999999) {
+            return new Date(cell * 1000).toLocaleString();
+          }
+          return cell;
+        },
       },
       value: {
         title: 'Value',
+      },
+      string_value: {
+        title: 'Description',
       },
     },
   };

@@ -57,6 +57,7 @@ export class MqttManagerService {
     this.mqttService.connect({
       username: username,
       password: password,
+      clientId: JSON.parse(localStorage.getItem('auth_app_token')).value,
     });
   }
 
