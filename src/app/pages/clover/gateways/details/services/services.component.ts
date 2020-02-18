@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { MqttManagerService } from 'app/common/services/mqtt/mqtt.manager.service';
 import { Service } from 'app/pages/clover/gateways/details/services/services.interface';
 import { Message } from 'app/common/interfaces/mainflux.interface';
@@ -10,7 +10,7 @@ import { interval, Subscription } from 'rxjs';
   styleUrls: ['./services.component.scss'],
 })
 
-export class ServicesComponent  {
+export class ServicesComponent implements OnDestroy  {
   offset = 0;
   limit = 20;
   total = 0;
@@ -67,7 +67,7 @@ export class ServicesComponent  {
     },
   };
   onCustom(event) {
-    const ip =<String>event.data.Name;
+    const ip = <String>event.data.Name;
     this.mqttManagerService.publishToService(this.gateway.metadata.ctrlChannelID, 'adc', '1', event.action, ip.replace(/_/g, '.'));
   }
 
@@ -83,7 +83,7 @@ export class ServicesComponent  {
 
     this.subscription.add(this.mqttManagerService.messageChange.subscribe(
         (message: Message) => {
-          this.services = <Service[]>JSON.parse(message.vs.toString())
+          this.services = <Service[]>JSON.parse(message.vs.toString());
         },
       ));
   }
