@@ -1,12 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { GatewaysService } from 'app/common/services/gateways/gateways.service';
-import { NotificationsService } from 'app/common/services/notifications/notifications.service';
 import { MqttManagerService } from 'app/common/services/mqtt/mqtt.manager.service';
 import { Service } from 'app/pages/clover/gateways/details/services/services.interface';
 import { Message } from 'app/common/interfaces/mainflux.interface';
 import { Gateway } from 'app/common/interfaces/gateway.interface';
-import { interval } from 'rxjs';
-import { LocalDataSource } from 'ng2-smart-table';
+import { interval, Subscription } from 'rxjs';
 @Component({
   selector: 'ngx-services-info',
   templateUrl: './services.component.html',
@@ -19,8 +16,7 @@ export class ServicesComponent  {
   total = 0;
   services: Service[];
   @Input() gateway: Gateway;
-
-  source: LocalDataSource = new LocalDataSource();
+  private subscription: Subscription = new Subscription();
 
   settings = {
 
@@ -71,28 +67,27 @@ export class ServicesComponent  {
     },
   };
   onCustom(event) {
-    var ip =<String>event.data.Name
-    this.mqttManagerService.publishToService(this.gateway.metadata.ctrlChannelID, 'adc', '1', event.action, ip.replace(/_/g, "."));
+    const ip =<String>event.data.Name;
+    this.mqttManagerService.publishToService(this.gateway.metadata.ctrlChannelID, 'adc', '1', event.action, ip.replace(/_/g, '.'));
   }
 
   constructor(
-    private gatewaysService: GatewaysService,
-    private notificationsService: NotificationsService,
     private mqttManagerService: MqttManagerService,
   ) {
 
     const poller = interval(10000);
     // Subscribe to begin publishing values
-    poller.subscribe(n => {
+    this.subscription.add( poller.subscribe(n => {
         this.mqttManagerService.publish(this.gateway.metadata.ctrlChannelID, '1', 'service', 'view');
-    })
+    }));
 
-    const mcSub = this.mqttManagerService.messageChange.subscribe(
+    this.subscription.add(this.mqttManagerService.messageChange.subscribe(
         (message: Message) => {
           this.services = <Service[]>JSON.parse(message.vs.toString())
-          this.source.load(this.services)
-          this.source.refresh()
         },
-      );
+      ));
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
