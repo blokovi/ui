@@ -57,7 +57,6 @@ export class MqttManagerService {
     this.mqttService.connect({
       username: username,
       password: password,
-      clientId: JSON.parse(localStorage.getItem('auth_app_token')).value,
     });
   }
 
@@ -85,12 +84,6 @@ export class MqttManagerService {
     this.mqttService.publish(topic, payload).subscribe();
   }
 
-  publishToService(channel: string, svc: string, bn: string, n: string, vs: string) {
-    const topic = this.createTopic(channel) + `services/${svc}`;
-    const payload = this.createPayload(bn, n, vs);
-    this.mqttService.publish(topic, payload).subscribe();
-  }
-  
   subscribe(channel: string) {
     const topic = `${this.createTopic(channel)}/res`;
     const topicSub = this.mqttService.observe(topic).subscribe(
