@@ -17,6 +17,7 @@ export class ServicesComponent implements OnDestroy  {
   services: Service[];
   @Input() gateway: Gateway;
   private subscription: Subscription = new Subscription();
+  private initialized: boolean = false;
 
   settings = {
 
@@ -75,19 +76,32 @@ export class ServicesComponent implements OnDestroy  {
     private mqttManagerService: MqttManagerService,
   ) {
 
-    const poller = interval(10000);
-    // Subscribe to begin publishing values
-    this.subscription.add( poller.subscribe(n => {
-        this.mqttManagerService.publish(this.gateway.metadata.ctrlChannelID, '1', 'service', 'view');
-    }));
+  
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 
-    this.subscription.add(this.mqttManagerService.messageChange.subscribe(
+  ngOnChanges() {
+    if (!this.gateway.name){
+      return;
+    }
+
+    this.mqttManagerService.publish(this.gateway.metadata.ctrlChannelID, '1', 'service', 'view');
+
+    if (!this.initialized){
+      this.subscription.add(this.mqttManagerService.messageChange.subscribe(
         (message: Message) => {
           this.services = <Service[]>JSON.parse(message.vs.toString());
         },
       ));
-  }
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+      const poller = interval(10000);
+
+      // Subscribe to begin publishing values
+      this.subscription.add( poller.subscribe(n => {
+          this.mqttManagerService.publish(this.gateway.metadata.ctrlChannelID, '1', 'service', 'view');
+      }));
+      this.initialized = true;
+    }
   }
 }

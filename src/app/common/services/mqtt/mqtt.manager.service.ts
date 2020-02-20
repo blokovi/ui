@@ -21,7 +21,7 @@ export class MqttManagerService {
   init(username: string, password: string, channel: string) {
     const connSub = this.mqttService.onConnect.subscribe(
       resp => {
-        this.notificationsService.success('Connected to MQTT broker', '');
+        // this.notificationsService.success('Connected to MQTT broker', '');
         this.subscribe(channel);
         this.connectChange.emit(MqttConnectionState.CONNECTED);
       },
@@ -35,7 +35,7 @@ export class MqttManagerService {
 
     const closeSub = this.mqttService.onClose.subscribe(
       resp => {
-        this.notificationsService.success('Disconnected from MQTT broker', '');
+        // this.notificationsService.success('Disconnected from MQTT broker', '');
         this.connectChange.emit(MqttConnectionState.CLOSED);
         this.subscriptions.forEach(
           sub => { sub.unsubscribe(); },

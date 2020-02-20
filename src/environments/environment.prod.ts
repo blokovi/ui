@@ -21,7 +21,7 @@ export const environment = {
   browseUrl: '/browse',
   mqttHostname: '84.201.171.65',
   mqttWsHostname: 'clover.mainflux.io',
-  mqttWsUrl: 'ws://clover.mainflux.io:80/mqtt',
+  mqttWsUrl: 'wss://clover.mainflux.io/mqtt',
 
   usersVersionUrl: '/version/users/version',
   thingsVersionUrl: '/version/things/version',
@@ -33,12 +33,12 @@ export const environment = {
   readerVersionUrl: '/reader/version',
   readerChannelsUrl: '/reader/channels',
 
-  grafanaHome: 'http://clover.mainflux.io/grafana/?orgId=1&kiosk',
-  grafanaLoginURL: 'http://clover.mainflux.io/grafana/login',
+  grafanaHome: 'https://clover.mainflux.io/grafana/?orgId=1&kiosk',
+  grafanaLoginURL: 'https://clover.mainflux.io/grafana/login',
   grafanaUsername: 'admin',
   grafanaPassword: 'pU9kNSwu6kKGZzwr',
-  grafanaGateway: 'http://clover.mainflux.io/grafana/d/000000127/telegraf-system-dashboard?orgId=1&kiosk&refresh=1m&var-datasource=InfluxDB-MAINFUX&var-inter=10s&var-mountpoint=All&var-cpu=All&var-disk=All&var-netif=All&var-server=',
-  jaegerHome: 'http://84.201.180.9',
+  grafanaGateway: 'https://clover.mainflux.io/grafana/d/000000127/telegraf-system-dashboard?orgId=1&kiosk&refresh=1m&var-datasource=InfluxDB-MAINFUX&var-inter=10s&var-mountpoint=All&var-cpu=All&var-disk=All&var-netif=All&var-server=',
+  jaegerHome: 'https://84.201.151.105',
   loraServer: 'http://lora.mainflux.io/#/',
   nodeRedHome: 'http://localhost:1880',
 };
