@@ -28,8 +28,8 @@ export class ServicesComponent implements OnDestroy  {
             title: '<i class="ion-android-arrow-dropright-circle" title="Run"></i>',
           },
           {
-            name: 'connect',
-            title: '<i class="ion-flash" title="Connect"></i>',
+            name: 'stop',
+            title: '<i class="ion-stop" title="Stop"></i>',
           },
         ],
         add: false,
