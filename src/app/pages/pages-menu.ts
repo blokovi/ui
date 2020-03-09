@@ -58,11 +58,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'Admin',
     icon: 'shield-outline',
     children: [
-      {
-        title: 'Tracing',
-        icon: 'search-outline',
-        link: '/pages/admin/tracing',
-      },
+      // {
+      //   title: 'Tracing',
+      //   icon: 'search-outline',
+      //   link: '/pages/admin/tracing',
+      // },
       {
         title: 'Grafana',
         icon: 'activity-outline',
