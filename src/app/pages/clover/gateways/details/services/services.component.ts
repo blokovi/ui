@@ -25,7 +25,7 @@ export class ServicesComponent implements OnDestroy  {
         custom: [
           {
             name: 'run',
-            title: '<i class="ion-android-arrow-dropright-circle" title="Run"></i>',
+            title: '<i class="ion-play" title="Run"></i>',
           },
           {
             name: 'stop',
