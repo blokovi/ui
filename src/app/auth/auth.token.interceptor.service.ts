@@ -34,7 +34,8 @@ export class TokenInterceptor implements HttpInterceptor {
           !request.url.startsWith(environment.writerChannelsUrl) &&
           !request.url.startsWith(environment.readerChannelsUrl) &&
           !request.url.startsWith(environment.bootstrapUrl) &&
-          !request.url.startsWith(environment.browseUrl)
+          !request.url.startsWith(environment.browseUrl) &&
+          !request.url.startsWith(environment.grafanaLoginURL)
         ) {
           request = request.clone({
             setHeaders: {

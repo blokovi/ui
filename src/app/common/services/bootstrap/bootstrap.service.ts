@@ -14,14 +14,14 @@ import { ThingsService } from 'app/common/services/things/things.service';
 @Injectable()
 export class BootstrapService {
   content: ConfigContent = {
-    'log_level': 'debug',
+    'log_level': 'info',
     'http_port': '9000',
-    'mqtt_url': 'localhost:1883',
+    'mqtt_url': '84.201.171.65:1883',
     'edgex_url': 'http://localhost:48090/api/v1/',
     'nats_url': 'localhost:4222',
     'export_config': {
       'exp': {
-        'log_level': 'debug',
+        'log_level': 'info',
         'nats': 'nats://localhost:4222',
         'port': '8170',
       },
@@ -29,7 +29,7 @@ export class BootstrapService {
         'ca_path': 'ca.crt',
         'cert_path': 'thing.crt',
         'channel': '',
-        'host': 'tcp://localhost:1883',
+        'host': 'tcp://84.201.171.65:1883',
         'mtls': false,
         'password': '',
         'priv_key_path': 'thing.key',
@@ -44,12 +44,14 @@ export class BootstrapService {
           'nats_topic': 'adc.>',
           'subtopic': '',
           'type': 'plain',
+          'workers': 200,
         },
         {
           'mqtt_topic': '',
           'nats_topic': 'telegraf',
           'subtopic': '',
           'type': 'plain',
+          'workers': 200,
         },
       ],
     },

@@ -15,6 +15,8 @@ export class ServicesComponent implements OnDestroy  {
   limit = 20;
   total = 0;
   services: Service[];
+  serviceServices: Service[];
+  serviceDevices: Service[];
   @Input() gateway: Gateway;
   private subscription: Subscription = new Subscription();
   private initialized: boolean = false;
@@ -30,6 +32,10 @@ export class ServicesComponent implements OnDestroy  {
           {
             name: 'stop',
             title: '<i class="ion-stop" title="Stop"></i>',
+          },
+          {
+            name: 'stat',
+            title: '<i class="ion-upload" title="Stat"></i>',
           },
         ],
         add: false,
@@ -92,7 +98,14 @@ export class ServicesComponent implements OnDestroy  {
     if (!this.initialized){
       this.subscription.add(this.mqttManagerService.messageChange.subscribe(
         (message: Message) => {
+          console.log ('message:', message);
           this.services = <Service[]>JSON.parse(message.vs.toString());
+          this.serviceServices = this.services.filter(svc => svc.type === 'service');
+          this.serviceDevices = this.services.filter(svc => svc.type === 'device');
+          console.log ('this.services:', this.services);
+          console.log ('this.serviceDevices:', this.serviceDevices);
+          console.log ('this.serviceServices:', this.serviceServices);
+
         },
       ));
       const poller = interval(10000);
