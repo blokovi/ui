@@ -1,8 +1,8 @@
 export interface Service {
-    name?: String
-    lastSeen?: String
-    status?: String
-    type?: String
+    Name?: String
+    LastSeen?: String
+    Status?: String
+    Type?: String
   }
   
 

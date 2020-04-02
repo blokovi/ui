@@ -100,8 +100,8 @@ export class ServicesComponent implements OnDestroy  {
         (message: Message) => {
           console.log ('message:', message);
           this.services = <Service[]>JSON.parse(message.vs.toString());
-          this.serviceServices = this.services.filter(svc => svc.type === 'service');
-          this.serviceDevices = this.services.filter(svc => svc.type === 'device');
+          this.serviceServices = this.services.filter(svc => svc.Type === 'service');
+          this.serviceDevices = this.services.filter(svc => svc.Type === 'device');
           console.log ('this.services:', this.services);
           console.log ('this.serviceDevices:', this.serviceDevices);
           console.log ('this.serviceServices:', this.serviceServices);
